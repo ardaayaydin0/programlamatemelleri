@@ -154,7 +154,7 @@
 </div>
 
 <div class="soru">
-    <p>13. elif ne işe yarar?</p>
+    <p>13. else if ne işe yarar?</p>
     <div class="cevaplar">
         <label><input type="radio" name="q13" value="A"> if koşulu True ise çalışır</label>
         <label><input type="radio" name="q13" value="B"> if koşulu False ise başka koşulu kontrol eder</label>
@@ -220,13 +220,17 @@
 </div>
 
 <div class="soru">
-    <p>19. Aşağıdaki kodun çıktısı nedir?</p>
+    <p>19. Aşağıdaki C# kodunun çıktısı nedir?</p>
     <pre>
-sayi = 8
-if sayi > 10:
-    print("Büyük")
-else:
-    print("Küçük veya eşit")
+int sayi = 8;
+if (sayi > 10)
+{
+    Console.WriteLine("Büyük");
+}
+else
+{
+    Console.WriteLine("Küçük veya eşit");
+}
     </pre>
     <div class="cevaplar">
         <label><input type="radio" name="q19" value="A"> Büyük</label>
@@ -236,6 +240,7 @@ else:
     </div>
     <div class="sonuc" id="sonuc19"></div>
 </div>
+
 
 <div class="soru">
     <p>20. İlk bilgisayar programcısı kimdir?</p>
@@ -252,11 +257,15 @@ else:
 <div class="soru">
     <p>21. Aşağıdaki kodun çıktısı nedir?</p>
     <pre>
-x = 7
-if x > 5:
-    print("Büyük")
-else:
-    print("Küçük")
+int x = 7;
+if (x > 5)
+{
+    Console.WriteLine("Büyük");
+}
+else
+{
+    Console.WriteLine("Küçük");
+}
     </pre>
     <div class="cevaplar">
         <label><input type="radio" name="q21" value="A"> Büyük</label>
@@ -267,11 +276,14 @@ else:
     <div class="sonuc" id="sonuc21"></div>
 </div>
 
+
 <div class="soru">
     <p>22. Aşağıdaki kod kaç kez “Merhaba” yazar?</p>
     <pre>
-for i in range(3):
-    print("Merhaba")
+for (int i = 0; i < 3; i++)
+{
+    Console.WriteLine("Merhaba");
+}
     </pre>
     <div class="cevaplar">
         <label><input type="radio" name="q22" value="A"> 1</label>
@@ -280,14 +292,13 @@ for i in range(3):
         <label><input type="radio" name="q22" value="D"> 4</label>
     </div>
     <div class="sonuc" id="sonuc22"></div>
-</div>
 
 <div class="soru">
     <p>23. if-else yapısı hangi durumda kullanılır?</p>
     <div class="cevaplar">
         <label><input type="radio" name="q23" value="A"> Tekrar eden işlemler için</label>
         <label><input type="radio" name="q23" value="B"> Koşula bağlı olarak farklı işlemler yapmak için</label>
-               <label><input type="radio" name="q23" value="C"> Kod yazmayı hızlandırmak için</label>
+        <label><input type="radio" name="q23" value="C"> Kod yazmayı hızlandırmak için</label>
         <label><input type="radio" name="q23" value="D"> Veri saklamak için</label>
     </div>
     <div class="sonuc" id="sonuc23"></div>
@@ -296,8 +307,10 @@ for i in range(3):
 <div class="soru">
     <p>24. Aşağıdaki döngü kaç kez çalışır?</p>
     <pre>
-for i in range(5):
-    print(i)
+for (int i = 0; i < 5; i++)
+{
+    Console.WriteLine(i);
+}
     </pre>
     <div class="cevaplar">
         <label><input type="radio" name="q24" value="A"> 4</label>
@@ -336,5 +349,4 @@ function kontrolEt(){
 </script>
 </body>
 </html>
-
 

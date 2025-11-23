@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Programlama Temelleri Testi</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f1f5f9;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 90%;
+        max-width: 900px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ccc;
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    .question {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: #f8fafc;
+        border-radius: 10px;
+        border-left: 5px solid #3b82f6;
+    }
+    .question p {
+        font-weight: bold;
+    }
+    button {
+        background: #3b82f6;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        display: block;
+        margin: auto;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    button:hover {
+        background: #2563eb;
+    }
+    .result {
+        margin-top: 10px;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 8px;
+    }
+    .true {
+        background: #bbf7d0;
+        color: #166534;
+    }
+    .false {
+        background: #fecaca;
+        color: #991b1b;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Programlama Temelleri - 20 Soruluk Test</h2>
+
+    <form id="quizForm">
+
+        <!-- SORULAR -->
+        <script>
+        const questions = [
+            {q:"Bilgisayar nedir?", a:["Elektrik olmadan çalışan cihaz","Verileri işleyip bilgiye dönüştüren cihaz","Sadece oyun cihazı","Veri depolar ama işlem yapmaz","İnternet olmadan çalışmaz"], c:1},
+            {q:"İlk elektronik sayısal bilgisayar hangisidir?", a:["UNIVAC","ENIAC","IBM-500","Mark-I","Pascaline"], c:1},
+            {q:"İlk ticari bilgisayar hangisidir?", a:["ENIAC","HP-100","UNIVAC","Z3","Altair 8800"], c:2},
+            {q:"İlk bilgisayar programcısı kimdir?", a:["Alan Turing","Charles Babbage","Ada Lovelace","Bill Gates","Grace Hopper"], c:2},
+            {q:"1 TB kaç GB'tır?", a:["1000","500","1024","2048","512"], c:2},
+            {q:"1 GB kaç MB'tır?", a:["100","512","2000","1024","256"], c:3},
+            {q:"1 KB kaç Byte'tır?", a:["100","512","1024","2048","256"], c:2},
+            {q:"(x)10 → (x)2 dönüşümü nasıl yapılır?", a:["Çıkarma","Bölme","Çarpma","Mod alma","Karekök"], c:1},
+            {q:"(x)2 → (x)10 dönüşümü nasıl yapılır?", a:["Bölerek","Logaritma","2'nin katlarını toplayarak","10 ile çarparak","8’e mod alarak"], c:2},
+            {q:"Derleyici için hangisi doğrudur?", a:["Satır satır çalıştırır","Tamamını çevirip çalıştırır","Yavaştır","Hataları çalışma anında gösterir","Hata göstermez"], c:1},
+            {q:"Yorumlayıcı için hangisi doğrudur?", a:["Hepsini bir defada çevirir","Hızlıdır","Satır satır çalıştırır","Derleyiciden hızlıdır","Hata vermez"], c:2},
+            {q:"Syntax error nedir?", a:["Çalışırken oluşur","Mantık hatasıdır","Dil kurallarına uyulmamasıdır","Bellek taşması","Sonsuz döngü"], c:2},
+            {q:"Run-time error örneği?", a:["Eksik parantez","Türkçe karakter","Sıfıra bölme","Yanlış formül","Noktalı virgül"], c:2},
+            {q:"Mantıksal hata nedir?", a:["Kod çalışmaz","Kod yanlış sonuç verir","Program kapanır","Derleme hatası","Bellek taşar"], c:1},
+            {q:"AND işlemi hangisi?", a:["Birinin doğru olması yeter","Her zaman doğru","İkisinin de doğru olması gerekir","Her zaman yanlış","Değişken kuralıdır"], c:2},
+            {q:"OR işlemi hangisi?", a:["İkisi doğruysa","En az biri doğruysa","Her zaman yanlış","Mantıksal değildir","Tersini alır"], c:1},
+            {q:"NOT işlemi ne yapar?", a:["Toplama","Çarpma","Tersini alma","Karşılaştırma","Bölme"], c:2},
+            {q:"Geçerli değişken ismi?", a:["öğrenciSayısı","1sayı","sayi adet","sayi-adet","sayi_adet"], c:4},
+            {q:"Artırma operatörü?", a:["--","-=","++","%=","/="], c:2},
+            {q:"Değer güncelleme örneği?", a:["x = y","x++","x += 5","++x","x--"], c:2},
+        ];
+        </script>
+
+        <div id="questionsArea"></div>
+
+        <button type="button" onclick="checkAnswers()">Cevapları Göster</button>
+    </form>
+
+</div>
+
+<script>
+window.onload = function() {
+    const area = document.getElementById("questionsArea");
+    questions.forEach((item, index) => {
+        let html = `<div class='question'><p>${index+1}. ${item.q}</p>`;
+        item.a.forEach((ans, i) => {
+            html += `
+                <label>
+                    <input type="radio" name="q${index}" value="${i}">
+                    ${String.fromCharCode(65+i)}) ${ans}
+                </label><br>`;
+        });
+        html += `<div id="result${index}"></div></div>`;
+        area.innerHTML += html;
+    });
+};
+
+function checkAnswers() {
+    questions.forEach((item, index) => {
+        const resultDiv = document.getElementById("result"+index);
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+
+        if (!selected) {
+            resultDiv.innerHTML = "<div class='result false'>Cevap Seçilmedi</div>";
+            return;
+        }
+
+        if (parseInt(selected.value) === item.c) {
+            resultDiv.innerHTML = "<div class='result true'>Doğru!</div>";
+        } else {
+            resultDiv.innerHTML = "<div class='result false'>Yanlış!</div>";
+        }
+    });
+}
+</script>
+
+</body>
+</html>

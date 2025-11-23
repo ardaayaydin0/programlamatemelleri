@@ -2,147 +2,338 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Programlama Temelleri Testi</title>
+<title>Programlama Temelleri Sınavı</title>
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f1f5f9;
-        margin: 0;
-        padding: 0;
-    }
-    .container {
-        width: 90%;
-        max-width: 900px;
-        margin: auto;
-        background: #fff;
-        padding: 20px;
-        margin-top: 20px;
-        margin-bottom: 30px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px #ccc;
-    }
-    h2 {
-        text-align: center;
-        color: #333;
-    }
-    .question {
-        margin-bottom: 20px;
-        padding: 15px;
-        background: #f8fafc;
-        border-radius: 10px;
-        border-left: 5px solid #3b82f6;
-    }
-    .question p {
-        font-weight: bold;
-    }
-    button {
-        background: #3b82f6;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        display: block;
-        margin: auto;
-        font-size: 16px;
-        margin-top: 20px;
-    }
-    button:hover {
-        background: #2563eb;
-    }
-    .result {
-        margin-top: 10px;
-        font-weight: bold;
-        padding: 10px;
-        border-radius: 8px;
-    }
-    .true {
-        background: #bbf7d0;
-        color: #166534;
-    }
-    .false {
-        background: #fecaca;
-        color: #991b1b;
-    }
+    body { font-family: Arial, sans-serif; background-color: #f9f9f9; margin: 20px; }
+    h1 { text-align: center; color: #333; }
+    .soru { background-color: #fff; border: 1px solid #ccc; padding: 15px; margin: 10px 0; border-radius: 8px; }
+    .cevaplar label { display: block; margin: 5px 0; cursor: pointer; }
+    .sonuc { margin-top: 5px; font-weight: bold; display: none; }
+    .dogru { color: green; }
+    .yanlis { color: red; }
+    button { display: block; margin: 20px auto; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px; }
+    pre { background-color: #eee; padding: 10px; border-radius: 5px; }
 </style>
 </head>
 <body>
+<h1>Programlama Temelleri Sınavı</h1>
 
-<div class="container">
-    <h2>Programlama Temelleri-Arda Ayaydın</h2>
+<form id="sinavForm">
 
-    <form id="quizForm">
-
-        <!-- SORULAR -->
-        <script>
-        const questions = [
-            {q:"Bilgisayar nedir?", a:["Elektrik olmadan çalışan cihaz","Verileri işleyip bilgiye dönüştüren cihaz","Sadece oyun cihazı","Veri depolar ama işlem yapmaz","İnternet olmadan çalışmaz"], c:1},
-            {q:"İlk elektronik sayısal bilgisayar hangisidir?", a:["UNIVAC","ENIAC","IBM-500","Mark-I","Pascaline"], c:1},
-            {q:"İlk ticari bilgisayar hangisidir?", a:["ENIAC","HP-100","UNIVAC","Z3","Altair 8800"], c:2},
-            {q:"İlk bilgisayar programcısı kimdir?", a:["Alan Turing","Charles Babbage","Ada Lovelace","Bill Gates","Grace Hopper"], c:2},
-            {q:"1 TB kaç GB'tır?", a:["1000","500","1024","2048","512"], c:2},
-            {q:"1 GB kaç MB'tır?", a:["100","512","2000","1024","256"], c:3},
-            {q:"1 KB kaç Byte'tır?", a:["100","512","1024","2048","256"], c:2},
-            {q:"(x)10 → (x)2 dönüşümü nasıl yapılır?", a:["Çıkarma","Bölme","Çarpma","Mod alma","Karekök"], c:1},
-            {q:"(x)2 → (x)10 dönüşümü nasıl yapılır?", a:["Bölerek","Logaritma","2'nin katlarını toplayarak","10 ile çarparak","8’e mod alarak"], c:2},
-            {q:"Derleyici için hangisi doğrudur?", a:["Satır satır çalıştırır","Tamamını çevirip çalıştırır","Yavaştır","Hataları çalışma anında gösterir","Hata göstermez"], c:1},
-            {q:"Yorumlayıcı için hangisi doğrudur?", a:["Hepsini bir defada çevirir","Hızlıdır","Satır satır çalıştırır","Derleyiciden hızlıdır","Hata vermez"], c:2},
-            {q:"Syntax error nedir?", a:["Çalışırken oluşur","Mantık hatasıdır","Dil kurallarına uyulmamasıdır","Bellek taşması","Sonsuz döngü"], c:2},
-            {q:"Run-time error örneği?", a:["Eksik parantez","Türkçe karakter","Sıfıra bölme","Yanlış formül","Noktalı virgül"], c:2},
-            {q:"Mantıksal hata nedir?", a:["Kod çalışmaz","Kod yanlış sonuç verir","Program kapanır","Derleme hatası","Bellek taşar"], c:1},
-            {q:"AND işlemi hangisi?", a:["Birinin doğru olması yeter","Her zaman doğru","İkisinin de doğru olması gerekir","Her zaman yanlış","Değişken kuralıdır"], c:2},
-            {q:"OR işlemi hangisi?", a:["İkisi doğruysa","En az biri doğruysa","Her zaman yanlış","Mantıksal değildir","Tersini alır"], c:1},
-            {q:"NOT işlemi ne yapar?", a:["Toplama","Çarpma","Tersini alma","Karşılaştırma","Bölme"], c:2},
-            {q:"Geçerli değişken ismi?", a:["öğrenciSayısı","1sayı","sayi adet","sayi-adet","sayi_adet"], c:4},
-            {q:"Artırma operatörü?", a:["--","-=","++","%=","/="], c:2},
-            {q:"Değer güncelleme örneği?", a:["x = y","x++","x += 5","++x","x--"], c:2},
-        ];
-        </script>
-
-        <div id="questionsArea"></div>
-
-        <button type="button" onclick="checkAnswers()">Cevapları Göster</button>
-    </form>
-
+<!-- 1-20 sorular (önceki sürüm) -->
+<div class="soru">
+    <p>1. Bilgisayar nedir?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q1" value="A"> Fiziksel parçaların toplamı</label>
+        <label><input type="radio" name="q1" value="B"> Verileri işleyip bilgiye dönüştüren elektronik cihaz</label>
+        <label><input type="radio" name="q1" value="C"> Sadece oyun oynanan cihaz</label>
+        <label><input type="radio" name="q1" value="D"> İnternete bağlanan cihaz</label>
+    </div>
+    <div class="sonuc" id="sonuc1"></div>
 </div>
 
+<div class="soru">
+    <p>2. Yazılım ve donanım farkı nedir?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q2" value="A"> Donanım = programlar, Yazılım = fiziksel parçalar</label>
+        <label><input type="radio" name="q2" value="B"> Donanım = fiziksel parçalar, Yazılım = bilgisayarı çalıştıran programlar</label>
+        <label><input type="radio" name="q2" value="C"> Donanım = kablolar, Yazılım = ekran</label>
+        <label><input type="radio" name="q2" value="D"> İkisi arasında fark yoktur</label>
+    </div>
+    <div class="sonuc" id="sonuc2"></div>
+</div>
+
+<div class="soru">
+    <p>3. Algoritma nedir?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q3" value="A"> Bir problemi çözmek için adım adım işlem dizisi</label>
+        <label><input type="radio" name="q3" value="B"> Bilgisayarın ekranı</label>
+        <label><input type="radio" name="q3" value="C"> Sadece sayı toplama işlemi</label>
+        <label><input type="radio" name="q3" value="D"> İnternet bağlantısı</label>
+    </div>
+    <div class="sonuc" id="sonuc3"></div>
+</div>
+
+<div class="soru">
+    <p>4. Bir bilgisayarın temel işlevlerinden biri değildir?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q4" value="A"> Veri işleme</label>
+        <label><input type="radio" name="q4" value="B"> Bilgi üretme</label>
+        <label><input type="radio" name="q4" value="C"> İnternete bağlanma zorunluluğu</label>
+        <label><input type="radio" name="q4" value="D"> Veri saklama</label>
+    </div>
+    <div class="sonuc" id="sonuc4"></div>
+</div>
+
+<div class="soru">
+    <p>5. Hangi ifade Boolean veri tipidir?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q5" value="A"> "Merhaba"</label>
+        <label><input type="radio" name="q5" value="B"> 10</label>
+        <label><input type="radio" name="q5" value="C"> Doğru</label>
+        <label><input type="radio" name="q5" value="D"> 3.14</label>
+    </div>
+    <div class="sonuc" id="sonuc5"></div>
+</div>
+
+<div class="soru">
+    <p>6. String veri tipi nedir?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q6" value="A"> Sayıları saklamak için kullanılır</label>
+        <label><input type="radio" name="q6" value="B"> Metinleri saklamak için kullanılır</label>
+        <label><input type="radio" name="q6" value="C"> Mantıksal değerleri saklamak için kullanılır</label>
+        <label><input type="radio" name="q6" value="D"> Hiçbir işlevi yoktur</label>
+    </div>
+    <div class="sonuc" id="sonuc6"></div>
+</div>
+
+<div class="soru">
+    <p>7. Bilgisayar donanımına örnek nedir?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q7" value="A"> İşletim sistemi</label>
+        <label><input type="radio" name="q7" value="B"> RAM</label>
+        <label><input type="radio" name="q7" value="C"> Tarayıcı</label>
+        <label><input type="radio" name="q7" value="D"> Uygulama programı</label>
+    </div>
+    <div class="sonuc" id="sonuc7"></div>
+</div>
+
+<div class="soru">
+    <p>8. 10 > 5 ifadesi ne döndürür?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q8" value="A"> True</label>
+        <label><input type="radio" name="q8" value="B"> False</label>
+        <label><input type="radio" name="q8" value="C"> 10</label>
+        <label><input type="radio" name="q8" value="D"> 5</label>
+    </div>
+    <div class="sonuc" id="sonuc8"></div>
+</div>
+
+<div class="soru">
+    <p>9. not True ifadesinin sonucu nedir?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q9" value="A"> True</label>
+        <label><input type="radio" name="q9" value="B"> False</label>
+        <label><input type="radio" name="q9" value="C"> None</label>
+        <label><input type="radio" name="q9" value="D"> 0</label>
+    </div>
+    <div class="sonuc" id="sonuc9"></div>
+</div>
+
+<div class="soru">
+    <p>10. 5 == 5 ifadesi ne döndürür?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q10" value="A"> True</label>
+        <label><input type="radio" name="q10" value="B"> False</label>
+        <label><input type="radio" name="q10" value="C"> 5</label>
+        <label><input type="radio" name="q10" value="D"> 10</label>
+    </div>
+    <div class="sonuc" id="sonuc10"></div>
+</div>
+
+<div class="soru">
+    <p>11. if sayi > 5: ne işe yarar?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q11" value="A"> Sayı 5’ten büyükse kodu çalıştırır</label>
+        <label><input type="radio" name="q11" value="B"> Her zaman kodu çalıştırır</label>
+        <label><input type="radio" name="q11" value="C"> Sayıyı 5’e eşitler</label>
+        <label><input type="radio" name="q11" value="D"> Kod çalışmaz</label>
+    </div>
+    <div class="sonuc" id="sonuc11"></div>
+</div>
+
+<div class="soru">
+    <p>12. else: ne zaman çalışır?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q12" value="A"> if koşulu True olduğunda</label>
+        <label><input type="radio" name="q12" value="B"> if koşulu False olduğunda</label>
+        <label><input type="radio" name="q12" value="C"> Her zaman</label>
+        <label><input type="radio" name="q12" value="D"> Kod çalışmaz</label>
+    </div>
+    <div class="sonuc" id="sonuc12"></div>
+</div>
+
+<div class="soru">
+    <p>13. elif ne işe yarar?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q13" value="A"> if koşulu True ise çalışır</label>
+        <label><input type="radio" name="q13" value="B"> if koşulu False ise başka koşulu kontrol eder</label>
+        <label><input type="radio" name="q13" value="C"> Her zaman çalışır</label>
+        <label><input type="radio" name="q13" value="D"> Kod çalışmaz</label>
+    </div>
+    <div class="sonuc" id="sonuc13"></div>
+</div>
+
+<div class="soru">
+    <p>14. not operatörü koşulu nasıl değiştirir?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q14" value="A"> Koşulu tersine çevirir</label>
+        <label><input type="radio" name="q14" value="B"> Koşulu her zaman True yapar</label>
+        <label><input type="radio" name="q14" value="C"> Koşulu her zaman False yapar</label>
+        <label><input type="radio" name="q14" value="D"> Kod çalışmaz</label>
+    </div>
+    <div class="sonuc" id="sonuc14"></div>
+</div>
+
+<div class="soru">
+    <p>15. Bilgisayar tarihindeki ENIAC bilgisayarı hangi özelliğe sahiptir?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q15" value="A"> İlk elektronik sayısal bilgisayar</label>
+        <label><input type="radio" name="q15" value="B"> İlk taşınabilir bilgisayar</label>
+        <label><input type="radio" name="q15" value="C"> İlk dizüstü bilgisayar</label>
+        <label><input type="radio" name="q15" value="D"> İlk oyun konsolu</label>
+    </div>
+    <div class="sonuc" id="sonuc15"></div>
+</div>
+
+<div class="soru">
+    <p>16. while döngüsü ne işe yarar?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q16" value="A"> Koşul doğru olduğu sürece kod bloğunu tekrar tekrar çalıştırır</label>
+        <label><input type="radio" name="q16" value="B"> Her zaman sadece bir kez çalışır</label>
+        <label><input type="radio" name="q16" value="C"> Kod çalışmaz</label>
+        <label><input type="radio" name="q16" value="D"> Kod sonsuza kadar durmaz</label>
+    </div>
+    <div class="sonuc" id="sonuc16"></div>
+</div>
+
+<div class="soru">
+    <p>17. Derleyici (compiler) ne işe yarar?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q17" value="A"> Kaynak kodu makine koduna çevirir</label>
+        <label><input type="radio" name="q17" value="B"> Kodları yazdırır</label>
+        <label><input type="radio" name="q17" value="C"> Kodları saklar</label>
+        <label><input type="radio" name="q17" value="D"> Program başlatmaz</label>
+    </div>
+    <div class="sonuc" id="sonuc17"></div>
+</div>
+
+<div class="soru">
+    <p>18. Yazılım geliştirme araçlarından biri değildir?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q18" value="A"> Derleyici</label>
+        <label><input type="radio" name="q18" value="B"> Yorumlayıcı</label>
+        <label><input type="radio" name="q18" value="C"> Matkap</label>
+        <label><input type="radio" name="q18" value="D"> IDE</label>
+    </div>
+    <div class="sonuc" id="sonuc18"></div>
+</div>
+
+<div class="soru">
+    <p>19. Aşağıdaki kodun çıktısı nedir?</p>
+    <pre>
+sayi = 8
+if sayi > 10:
+    print("Büyük")
+else:
+    print("Küçük veya eşit")
+    </pre>
+    <div class="cevaplar">
+        <label><input type="radio" name="q19" value="A"> Büyük</label>
+        <label><input type="radio" name="q19" value="B"> Küçük veya eşit</label>
+        <label><input type="radio" name="q19" value="C"> 8</label>
+        <label><input type="radio" name="q19" value="D"> None</label>
+    </div>
+    <div class="sonuc" id="sonuc19"></div>
+</div>
+
+<div class="soru">
+    <p>20. İlk bilgisayar programcısı kimdir?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q20" value="A"> Charles Babbage</label>
+        <label><input type="radio" name="q20" value="B"> Ada Lovelace</label>
+        <label><input type="radio" name="q20" value="C"> Alan Turing</label>
+        <label><input type="radio" name="q20" value="D"> John von Neumann</label>
+    </div>
+    <div class="sonuc" id="sonuc20"></div>
+</div>
+
+<!-- Yeni if/for soruları -->
+<div class="soru">
+    <p>21. Aşağıdaki kodun çıktısı nedir?</p>
+    <pre>
+x = 7
+if x > 5:
+    print("Büyük")
+else:
+    print("Küçük")
+    </pre>
+    <div class="cevaplar">
+        <label><input type="radio" name="q21" value="A"> Büyük</label>
+        <label><input type="radio" name="q21" value="B"> Küçük</label>
+        <label><input type="radio" name="q21" value="C"> 7</label>
+        <label><input type="radio" name="q21" value="D"> None</label>
+    </div>
+    <div class="sonuc" id="sonuc21"></div>
+</div>
+
+<div class="soru">
+    <p>22. Aşağıdaki kod kaç kez “Merhaba” yazar?</p>
+    <pre>
+for i in range(3):
+    print("Merhaba")
+    </pre>
+    <div class="cevaplar">
+        <label><input type="radio" name="q22" value="A"> 1</label>
+        <label><input type="radio" name="q22" value="B"> 2</label>
+        <label><input type="radio" name="q22" value="C"> 3</label>
+        <label><input type="radio" name="q22" value="D"> 4</label>
+    </div>
+    <div class="sonuc" id="sonuc22"></div>
+</div>
+
+<div class="soru">
+    <p>23. if-else yapısı hangi durumda kullanılır?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q23" value="A"> Tekrar eden işlemler için</label>
+        <label><input type="radio" name="q23" value="B"> Koşula bağlı olarak farklı işlemler yapmak için</label>
+               <label><input type="radio" name="q23" value="C"> Kod yazmayı hızlandırmak için</label>
+        <label><input type="radio" name="q23" value="D"> Veri saklamak için</label>
+    </div>
+    <div class="sonuc" id="sonuc23"></div>
+</div>
+
+<div class="soru">
+    <p>24. Aşağıdaki döngü kaç kez çalışır?</p>
+    <pre>
+for i in range(5):
+    print(i)
+    </pre>
+    <div class="cevaplar">
+        <label><input type="radio" name="q24" value="A"> 4</label>
+        <label><input type="radio" name="q24" value="B"> 5</label>
+        <label><input type="radio" name="q24" value="C"> 6</label>
+        <label><input type="radio" name="q24" value="D"> Sonsuz</label>
+    </div>
+    <div class="sonuc" id="sonuc24"></div>
+</div>
+
+<button type="button" onclick="kontrolEt()">Cevapları Kontrol Et</button>
+
 <script>
-window.onload = function() {
-    const area = document.getElementById("questionsArea");
-    questions.forEach((item, index) => {
-        let html = `<div class='question'><p>${index+1}. ${item.q}</p>`;
-        item.a.forEach((ans, i) => {
-            html += `
-                <label>
-                    <input type="radio" name="q${index}" value="${i}">
-                    ${String.fromCharCode(65+i)}) ${ans}
-                </label><br>`;
-        });
-        html += `<div id="result${index}"></div></div>`;
-        area.innerHTML += html;
-    });
+const dogruCevaplar = {
+    q1:'B', q2:'B', q3:'A', q4:'C', q5:'C', q6:'B', q7:'B', q8:'A', q9:'B', q10:'A',
+    q11:'A', q12:'B', q13:'B', q14:'A', q15:'A', q16:'A', q17:'A', q18:'C', q19:'B', q20:'B',
+    q21:'A', q22:'C', q23:'B', q24:'B'
 };
 
-function checkAnswers() {
-    questions.forEach((item, index) => {
-        const resultDiv = document.getElementById("result"+index);
-        const selected = document.querySelector(`input[name="q${index}"]:checked`);
-
-        if (!selected) {
-            resultDiv.innerHTML = "<div class='result false'>Cevap Seçilmedi</div>";
-            return;
+function kontrolEt(){
+    for(let i=1;i<=24;i++){
+        let secilen=document.querySelector('input[name="q'+i+'"]:checked');
+        let sonucDiv=document.getElementById('sonuc'+i);
+        if(secilen){
+            if(secilen.value===dogruCevaplar['q'+i]){
+                sonucDiv.textContent='Doğru';
+                sonucDiv.className='sonuc dogru';
+            } else {
+                sonucDiv.textContent='Yanlış. Doğru cevap: '+dogruCevaplar['q'+i];
+                sonucDiv.className='sonuc yanlis';
+            }
+            sonucDiv.style.display='block';
         }
-
-        if (parseInt(selected.value) === item.c) {
-            resultDiv.innerHTML = "<div class='result true'>Doğru!</div>";
-        } else {
-            resultDiv.innerHTML = "<div class='result false'>Yanlış!</div>";
-        }
-    });
+    }
 }
 </script>
-
 </body>
 </html>
-
 

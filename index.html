@@ -511,11 +511,112 @@ switch(gun)
     <div class="sonuc" id="sonuc39"></div>
 </div>
 
-<button type="button" onclick="kontrolEt()">Cevapları Kontrol Et</button>
+    <div class="soru">
+    <p>40. Aşağıdaki C# kodu kaç kez "Merhaba" yazdırır?</p>
+    <pre>
+for(int i=0; i<5; i++)
+{
+    if(i==3)
+        break;
+    Console.WriteLine("Merhaba");
+}
+    </pre>
+    <div class="cevaplar">
+        <label><input type="radio" name="q40" value="A"> 3</label>
+        <label><input type="radio" name="q40" value="B"> 5</label>
+        <label><input type="radio" name="q40" value="C"> 4</label>
+        <label><input type="radio" name="q40" value="D"> 2</label>
+    </div>
+    <div class="sonuc" id="sonuc40"></div>
+</div>
+
+<div class="soru">
+    <p>41. "break" komutu ne işe yarar?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q41" value="A"> Döngüyü veya switch'i anında durdurur</label>
+        <label><input type="radio" name="q41" value="B"> Döngüyü bir kez daha çalıştırır</label>
+        <label><input type="radio" name="q41" value="C"> Döngüyü sürekli tekrar ettirir</label>
+        <label><input type="radio" name="q41" value="D"> Kodun çalışmasını durdurmaz</label>
+    </div>
+    <div class="sonuc" id="sonuc41"></div>
+</div>
+
+<!-- 42-43: Switch -->
+<div class="soru">
+    <p>42. Aşağıdaki C# kodunun çıktısı nedir?</p>
+    <pre>
+int sayi = 2;
+switch(sayi)
+{
+    case 1:
+        Console.WriteLine("Bir");
+        break;
+    case 2:
+        Console.WriteLine("İki");
+        break;
+    default:
+        Console.WriteLine("Diğer");
+        break;
+}
+    </pre>
+    <div class="cevaplar">
+        <label><input type="radio" name="q42" value="A"> Bir</label>
+        <label><input type="radio" name="q42" value="B"> İki</label>
+        <label><input type="radio" name="q42" value="C"> Diğer</label>
+        <label><input type="radio" name="q42" value="D"> Hata verir</label>
+    </div>
+    <div class="sonuc" id="sonuc42"></div>
+</div>
+
+<div class="soru">
+    <p>43. switch yapısında "default" ne işe yarar?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q43" value="A"> Tüm durumlar doğruysa çalışır</label>
+        <label><input type="radio" name="q43" value="B"> Hiçbir case eşleşmezse çalışır</label>
+        <label><input type="radio" name="q43" value="C"> Kodun başında çalışır</label>
+        <label><input type="radio" name="q43" value="D"> Sadece hata verirse çalışır</label>
+    </div>
+    <div class="sonuc" id="sonuc43"></div>
+</div>
+
+<!-- 44-46: Mantıksal Operatörler -->
+<div class="soru">
+    <p>44. AND (&&) operatörü ne zaman True döner?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q44" value="A"> İki koşul da doğruysa</label>
+        <label><input type="radio" name="q44" value="B"> Biri doğruysa</label>
+        <label><input type="radio" name="q44" value="C"> Her zaman</label>
+        <label><input type="radio" name="q44" value="D"> Hiçbir zaman</label>
+    </div>
+    <div class="sonuc" id="sonuc44"></div>
+</div>
+
+<div class="soru">
+    <p>45. OR (||) operatörü ne zaman True döner?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q45" value="A"> İki koşul da yanlışsa</label>
+        <label><input type="radio" name="q45" value="B"> En az bir koşul doğruysa</label>
+        <label><input type="radio" name="q45" value="C"> Her zaman</label>
+        <label><input type="radio" name="q45" value="D"> Hiçbir zaman</label>
+    </div>
+    <div class="sonuc" id="sonuc45"></div>
+</div>
+
+<div class="soru">
+    <p>46. NOT (!) operatörü ne yapar?</p>
+    <div class="cevaplar">
+        <label><input type="radio" name="q46" value="A"> Koşulu tersine çevirir</label>
+        <label><input type="radio" name="q46" value="B"> Koşulu her zaman True yapar</label>
+        <label><input type="radio" name="q46" value="C"> Koşulu her zaman False yapar</label>
+        <label><input type="radio" name="q46" value="D"> Hiçbir şey yapmaz</label>
+    </div>
+    <div class="sonuc" id="sonuc46"></div>
+</div>
 
 
 <button type="button" onclick="kontrolEt()">Cevapları Kontrol Et</button>
-
+<br></br>
+    
 <script>
 const dogruCevaplar = {
     q1:'B', q2:'B', q3:'A', q4:'C', q5:'C', q6:'B', q7:'B', q8:'A', q9:'B', q10:'A',
@@ -524,7 +625,7 @@ const dogruCevaplar = {
     q25:'B', q26:'B', q27:'A', q28:'C', q29:'C', q30:'C', q31:'B',
     q32:'B', q33:'B', q34:'A',
     q35:'A', q36:'B', q37:'A',
-    q38:'A', q39:'B'
+    q38:'A', q39:'B', q40:'A', q41:'A', q42:'B', q43:'B', q44:'A', q45:'B', q46:'A'
 };
 
 function kontrolEt(){
@@ -547,5 +648,6 @@ function kontrolEt(){
 
 </body>
 </html>
+
 
 

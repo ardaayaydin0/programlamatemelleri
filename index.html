@@ -2,654 +2,241 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Programlama Temelleri Sınavı</title>
+<title>Programlama Temelleri Testi</title>
 <style>
-    body { font-family: Arial, sans-serif; background-color: #f9f9f9; margin: 20px; }
-    h1 { text-align: center; color: #333; }
-    .soru { background-color: #fff; border: 1px solid #ccc; padding: 15px; margin: 10px 0; border-radius: 8px; }
-    .cevaplar label { display: block; margin: 5px 0; cursor: pointer; }
-    .sonuc { margin-top: 5px; font-weight: bold; display: none; }
-    .dogru { color: green; }
-    .yanlis { color: red; }
-    button { display: block; margin: 20px auto; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px; }
-    pre { background-color: #eee; padding: 10px; border-radius: 5px; }
+body{
+    font-family: Arial;
+    background:#f2f2f2;
+    padding:20px;
+}
+.test{
+    max-width:900px;
+    margin:auto;
+    background:#ffffff;
+    padding:25px;
+    border-radius:8px;
+}
+.question{
+    margin-bottom:20px;
+    padding-bottom:12px;
+    border-bottom:1px solid #ccc;
+}
+.answers label{
+    display:block;
+    padding:4px;
+    cursor:pointer;
+}
+.correct{color:green;font-weight:bold;}
+.wrong{color:red;font-weight:bold;}
+pre{
+    background:#f7f7f7;
+    padding:10px;
+    border-radius:5px;
+}
 </style>
 </head>
 <body>
-<h1>Programlama Temelleri Sınavı - Arda Ayaydın</h1>
 
-<form id="sinavForm">
+<div class="test">
+<h2>Programlama Temelleri – Çoktan Seçmeli Test</h2>
 
-<!-- 1-20 sorular (önceki sürüm) -->
-<div class="soru">
-    <p>1. Bilgisayar nedir?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q1" value="A"> Fiziksel parçaların toplamı</label>
-        <label><input type="radio" name="q1" value="B"> Verileri işleyip bilgiye dönüştüren elektronik cihaz</label>
-        <label><input type="radio" name="q1" value="C"> Sadece oyun oynanan cihaz</label>
-        <label><input type="radio" name="q1" value="D"> İnternete bağlanan cihaz</label>
-    </div>
-    <div class="sonuc" id="sonuc1"></div>
-</div>
-
-<div class="soru">
-    <p>2. Yazılım ve donanım farkı nedir?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q2" value="A"> Donanım = programlar, Yazılım = fiziksel parçalar</label>
-        <label><input type="radio" name="q2" value="B"> Donanım = fiziksel parçalar, Yazılım = bilgisayarı çalıştıran programlar</label>
-        <label><input type="radio" name="q2" value="C"> Donanım = kablolar, Yazılım = ekran</label>
-        <label><input type="radio" name="q2" value="D"> İkisi arasında fark yoktur</label>
-    </div>
-    <div class="sonuc" id="sonuc2"></div>
-</div>
-
-<div class="soru">
-    <p>3. Algoritma nedir?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q3" value="A"> Bir problemi çözmek için adım adım işlem dizisi</label>
-        <label><input type="radio" name="q3" value="B"> Bilgisayarın ekranı</label>
-        <label><input type="radio" name="q3" value="C"> Sadece sayı toplama işlemi</label>
-        <label><input type="radio" name="q3" value="D"> İnternet bağlantısı</label>
-    </div>
-    <div class="sonuc" id="sonuc3"></div>
-</div>
-
-<div class="soru">
-    <p>4. Bir bilgisayarın temel işlevlerinden biri değildir?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q4" value="A"> Veri işleme</label>
-        <label><input type="radio" name="q4" value="B"> Bilgi üretme</label>
-        <label><input type="radio" name="q4" value="C"> İnternete bağlanma zorunluluğu</label>
-        <label><input type="radio" name="q4" value="D"> Veri saklama</label>
-    </div>
-    <div class="sonuc" id="sonuc4"></div>
-</div>
-
-<div class="soru">
-    <p>5. Hangi ifade Boolean veri tipidir?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q5" value="A"> "Merhaba"</label>
-        <label><input type="radio" name="q5" value="B"> 10</label>
-        <label><input type="radio" name="q5" value="C"> Doğru</label>
-        <label><input type="radio" name="q5" value="D"> 3.14</label>
-    </div>
-    <div class="sonuc" id="sonuc5"></div>
-</div>
-
-<div class="soru">
-    <p>6. String veri tipi nedir?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q6" value="A"> Sayıları saklamak için kullanılır</label>
-        <label><input type="radio" name="q6" value="B"> Metinleri saklamak için kullanılır</label>
-        <label><input type="radio" name="q6" value="C"> Mantıksal değerleri saklamak için kullanılır</label>
-        <label><input type="radio" name="q6" value="D"> Hiçbir işlevi yoktur</label>
-    </div>
-    <div class="sonuc" id="sonuc6"></div>
-</div>
-
-<div class="soru">
-    <p>7. Bilgisayar donanımına örnek nedir?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q7" value="A"> İşletim sistemi</label>
-        <label><input type="radio" name="q7" value="B"> RAM</label>
-        <label><input type="radio" name="q7" value="C"> Tarayıcı</label>
-        <label><input type="radio" name="q7" value="D"> Uygulama programı</label>
-    </div>
-    <div class="sonuc" id="sonuc7"></div>
-</div>
-
-<div class="soru">
-    <p>8. 10 > 5 ifadesi ne döndürür?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q8" value="A"> True</label>
-        <label><input type="radio" name="q8" value="B"> False</label>
-        <label><input type="radio" name="q8" value="C"> 10</label>
-        <label><input type="radio" name="q8" value="D"> 5</label>
-    </div>
-    <div class="sonuc" id="sonuc8"></div>
-</div>
-
-<div class="soru">
-    <p>9. not True ifadesinin sonucu nedir?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q9" value="A"> True</label>
-        <label><input type="radio" name="q9" value="B"> False</label>
-        <label><input type="radio" name="q9" value="C"> None</label>
-        <label><input type="radio" name="q9" value="D"> 0</label>
-    </div>
-    <div class="sonuc" id="sonuc9"></div>
-</div>
-
-<div class="soru">
-    <p>10. 5 == 5 ifadesi ne döndürür?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q10" value="A"> True</label>
-        <label><input type="radio" name="q10" value="B"> False</label>
-        <label><input type="radio" name="q10" value="C"> 5</label>
-        <label><input type="radio" name="q10" value="D"> 10</label>
-    </div>
-    <div class="sonuc" id="sonuc10"></div>
-</div>
-
-<div class="soru">
-    <p>11. if sayi > 5: ne işe yarar?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q11" value="A"> Sayı 5’ten büyükse kodu çalıştırır</label>
-        <label><input type="radio" name="q11" value="B"> Her zaman kodu çalıştırır</label>
-        <label><input type="radio" name="q11" value="C"> Sayıyı 5’e eşitler</label>
-        <label><input type="radio" name="q11" value="D"> Kod çalışmaz</label>
-    </div>
-    <div class="sonuc" id="sonuc11"></div>
-</div>
-
-<div class="soru">
-    <p>12. else: ne zaman çalışır?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q12" value="A"> if koşulu True olduğunda</label>
-        <label><input type="radio" name="q12" value="B"> if koşulu False olduğunda</label>
-        <label><input type="radio" name="q12" value="C"> Her zaman</label>
-        <label><input type="radio" name="q12" value="D"> Kod çalışmaz</label>
-    </div>
-    <div class="sonuc" id="sonuc12"></div>
-</div>
-
-<div class="soru">
-    <p>13. else if ne işe yarar?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q13" value="A"> if koşulu True ise çalışır</label>
-        <label><input type="radio" name="q13" value="B"> if koşulu False ise başka koşulu kontrol eder</label>
-        <label><input type="radio" name="q13" value="C"> Her zaman çalışır</label>
-        <label><input type="radio" name="q13" value="D"> Kod çalışmaz</label>
-    </div>
-    <div class="sonuc" id="sonuc13"></div>
-</div>
-
-<div class="soru">
-    <p>14. not operatörü koşulu nasıl değiştirir?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q14" value="A"> Koşulu tersine çevirir</label>
-        <label><input type="radio" name="q14" value="B"> Koşulu her zaman True yapar</label>
-        <label><input type="radio" name="q14" value="C"> Koşulu her zaman False yapar</label>
-        <label><input type="radio" name="q14" value="D"> Kod çalışmaz</label>
-    </div>
-    <div class="sonuc" id="sonuc14"></div>
-</div>
-
-<div class="soru">
-    <p>15. Bilgisayar tarihindeki ENIAC bilgisayarı hangi özelliğe sahiptir?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q15" value="A"> İlk elektronik sayısal bilgisayar</label>
-        <label><input type="radio" name="q15" value="B"> İlk taşınabilir bilgisayar</label>
-        <label><input type="radio" name="q15" value="C"> İlk dizüstü bilgisayar</label>
-        <label><input type="radio" name="q15" value="D"> İlk oyun konsolu</label>
-    </div>
-    <div class="sonuc" id="sonuc15"></div>
-</div>
-
-<div class="soru">
-    <p>16. while döngüsü ne işe yarar?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q16" value="A"> Koşul doğru olduğu sürece kod bloğunu tekrar tekrar çalıştırır</label>
-        <label><input type="radio" name="q16" value="B"> Her zaman sadece bir kez çalışır</label>
-        <label><input type="radio" name="q16" value="C"> Kod çalışmaz</label>
-        <label><input type="radio" name="q16" value="D"> Kod sonsuza kadar durmaz</label>
-    </div>
-    <div class="sonuc" id="sonuc16"></div>
-</div>
-
-<div class="soru">
-    <p>17. Derleyici (compiler) ne işe yarar?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q17" value="A"> Kaynak kodu makine koduna çevirir</label>
-        <label><input type="radio" name="q17" value="B"> Kodları yazdırır</label>
-        <label><input type="radio" name="q17" value="C"> Kodları saklar</label>
-        <label><input type="radio" name="q17" value="D"> Program başlatmaz</label>
-    </div>
-    <div class="sonuc" id="sonuc17"></div>
-</div>
-
-<div class="soru">
-    <p>18. Yazılım geliştirme araçlarından biri değildir?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q18" value="A"> Derleyici</label>
-        <label><input type="radio" name="q18" value="B"> Yorumlayıcı</label>
-        <label><input type="radio" name="q18" value="C"> Arda Ayaydın</label>
-        <label><input type="radio" name="q18" value="D"> IDE</label>
-    </div>
-    <div class="sonuc" id="sonuc18"></div>
-</div>
-
-<div class="soru">
-    <p>19. Aşağıdaki C# kodunun çıktısı nedir?</p>
-    <pre>
-int sayi = 8;
-if (sayi > 10)
-{
-    Console.WriteLine("Büyük");
-}
-else
-{
-    Console.WriteLine("Küçük veya eşit");
-}
-    </pre>
-    <div class="cevaplar">
-        <label><input type="radio" name="q19" value="A"> Büyük</label>
-        <label><input type="radio" name="q19" value="B"> Küçük veya eşit</label>
-        <label><input type="radio" name="q19" value="C"> 8</label>
-        <label><input type="radio" name="q19" value="D"> None</label>
-    </div>
-    <div class="sonuc" id="sonuc19"></div>
-</div>
-
-
-<div class="soru">
-    <p>20. İlk bilgisayar programcısı kimdir?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q20" value="A"> Charles Babbage</label>
-        <label><input type="radio" name="q20" value="B"> Ada Lovelace</label>
-        <label><input type="radio" name="q20" value="C"> Alan Turing</label>
-        <label><input type="radio" name="q20" value="D"> John von Neumann</label>
-    </div>
-    <div class="sonuc" id="sonuc20"></div>
-</div>
-
-<!-- Yeni if/for soruları -->
-<div class="soru">
-    <p>21. Aşağıdaki kodun çıktısı nedir?</p>
-    <pre>
-int x = 7;
-if (x > 5)
-{
-    Console.WriteLine("Büyük");
-}
-else
-{
-    Console.WriteLine("Küçük");
-}
-    </pre>
-    <div class="cevaplar">
-        <label><input type="radio" name="q21" value="A"> Büyük</label>
-        <label><input type="radio" name="q21" value="B"> Küçük</label>
-        <label><input type="radio" name="q21" value="C"> 7</label>
-        <label><input type="radio" name="q21" value="D"> None</label>
-    </div>
-    <div class="sonuc" id="sonuc21"></div>
-</div>
-
-
-<div class="soru">
-    <p>22. Aşağıdaki kod kaç kez “Merhaba” yazar?</p>
-    <pre>
-for (int i = 0; i < 3; i++)
-{
-    Console.WriteLine("Merhaba");
-}
-    </pre>
-    <div class="cevaplar">
-        <label><input type="radio" name="q22" value="A"> 1</label>
-        <label><input type="radio" name="q22" value="B"> 2</label>
-        <label><input type="radio" name="q22" value="C"> 3</label>
-        <label><input type="radio" name="q22" value="D"> 4</label>
-    </div>
-    <div class="sonuc" id="sonuc22"></div>
-
-<div class="soru">
-    <p>23. if-else yapısı hangi durumda kullanılır?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q23" value="A"> Tekrar eden işlemler için</label>
-        <label><input type="radio" name="q23" value="B"> Koşula bağlı olarak farklı işlemler yapmak için</label>
-        <label><input type="radio" name="q23" value="C"> Kod yazmayı hızlandırmak için</label>
-        <label><input type="radio" name="q23" value="D"> Veri saklamak için</label>
-    </div>
-    <div class="sonuc" id="sonuc23"></div>
-</div>
-
-<div class="soru">
-    <p>24. Aşağıdaki döngü kaç kez çalışır?</p>
-    <pre>
-for (int i = 0; i < 5; i++)
-{
-    Console.WriteLine(i);
-}
-    </pre>
-    <div class="cevaplar">
-        <label><input type="radio" name="q24" value="A"> 4</label>
-        <label><input type="radio" name="q24" value="B"> 5</label>
-        <label><input type="radio" name="q24" value="C"> 6</label>
-        <label><input type="radio" name="q24" value="D"> Sonsuz</label>
-    </div>
-    <div class="sonuc" id="sonuc24"></div>
-</div>
-
-    <div class="soru">
-    <p>25. Aşağıdaki C# kodu hangi aralıkta sayı üretir?</p>
-    <pre>int s = rnd.Next(10, 20);</pre>
-    <div class="cevaplar">
-        <label><input type="radio" name="q25" value="A"> 10–20 (20 dahil)</label>
-        <label><input type="radio" name="q25" value="B"> 10–19</label>
-        <label><input type="radio" name="q25" value="C"> 11–20</label>
-        <label><input type="radio" name="q25" value="D"> 0–9</label>
-    </div>
-    <div class="sonuc" id="sonuc25"></div>
-</div>
-
-<!-- 26 — RANDOM -->
-<div class="soru">
-    <p>26. Aşağıdaki kod ne tür bir değer üretir?</p>
-    <pre>double d = rnd.NextDouble();</pre>
-    <div class="cevaplar">
-        <label><input type="radio" name="q26" value="A"> 1 ile 10 arasında</label>
-        <label><input type="radio" name="q26" value="B"> 0.0 ile 1.0 arasında</label>
-        <label><input type="radio" name="q26" value="C"> Negatif bir sayı</label>
-        <label><input type="radio" name="q26" value="D"> Tam sayı</label>
-    </div>
-    <div class="sonuc" id="sonuc26"></div>
-</div>
-
-<!-- 27 — BREAK -->
-<div class="soru">
-    <p>27. break komutu ne işe yarar?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q27" value="A"> Döngüyü veya switch yapısını anında durdurur</label>
-        <label><input type="radio" name="q27" value="B"> Döngüyü hızlandırır</label>
-        <label><input type="radio" name="q27" value="C"> Bir sonraki döngüye atlar</label>
-        <label><input type="radio" name="q27" value="D"> Programı kapatır</label>
-    </div>
-    <div class="sonuc" id="sonuc27"></div>
-</div>
-
-<!-- 28 — SWITCH -->
-<div class="soru">
-    <p>28. Aşağıdaki kodun çıktısı nedir?</p>
-    <pre>
-int gun = 3;
-switch(gun)
-{
-    case 1: Console.WriteLine("Pazartesi"); break;
-    case 2: Console.WriteLine("Salı"); break;
-    case 3: Console.WriteLine("Çarşamba"); break;
-}
-    </pre>
-    <div class="cevaplar">
-        <label><input type="radio" name="q28" value="A"> Pazartesi</label>
-        <label><input type="radio" name="q28" value="B"> Salı</label>
-        <label><input type="radio" name="q28" value="C"> Çarşamba</label>
-        <label><input type="radio" name="q28" value="D"> Hata verir</label>
-    </div>
-    <div class="sonuc" id="sonuc28"></div>
-</div>
-
-<!-- 29 — SAYI DÖNÜŞÜMLERİ -->
-<div class="soru">
-    <p>29. 1 GB kaç MB eder?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q29" value="A"> 1000</label>
-        <label><input type="radio" name="q29" value="B"> 512</label>
-        <label><input type="radio" name="q29" value="C"> 1024</label>
-        <label><input type="radio" name="q29" value="D"> 2048</label>
-    </div>
-    <div class="sonuc" id="sonuc29"></div>
-</div>
-
-<!-- 30 — SAYI DÖNÜŞÜMLERİ -->
-<div class="soru">
-    <p>30. 1 KB kaç Byte eder?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q30" value="A"> 100</label>
-        <label><input type="radio" name="q30" value="B"> 500</label>
-        <label><input type="radio" name="q30" value="C"> 1024</label>
-        <label><input type="radio" name="q30" value="D"> 2048</label>
-    </div>
-    <div class="sonuc" id="sonuc30"></div>
-</div>
-
-<!-- 31 — SAYI DÖNÜŞÜMLERİ -->
-<div class="soru">
-    <p>31. 1 TB kaç GB eder?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q31" value="A"> 512</label>
-        <label><input type="radio" name="q31" value="B"> 1024</label>
-        <label><input type="radio" name="q31" value="C"> 2048</label>
-        <label><input type="radio" name="q31" value="D"> 4096</label>
-    </div>
-    <div class="sonuc" id="sonuc31"></div>
-</div>
-
-<!-- 32 — AND -->
-<div class="soru">
-    <p>32. AND (&&) operatörü hangi durumda True döndürür?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q32" value="A"> En az biri True ise</label>
-        <label><input type="radio" name="q32" value="B"> Her iki ifade de True ise</label>
-        <label><input type="radio" name="q32" value="C"> Her zaman False döner</label>
-        <label><input type="radio" name="q32" value="D"> Tersini alır</label>
-    </div>
-    <div class="sonuc" id="sonuc32"></div>
-</div>
-
-<!-- 33 — OR -->
-<div class="soru">
-    <p>33. OR (||) operatörü hangi durumda True verir?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q33" value="A"> Sadece her ikisi False ise</label>
-        <label><input type="radio" name="q33" value="B"> En az biri True ise</label>
-        <label><input type="radio" name="q33" value="C"> Her ikisi True ise</label>
-        <label><input type="radio" name="q33" value="D"> Her zaman False</label>
-    </div>
-    <div class="sonuc" id="sonuc33"></div>
-</div>
-
-<!-- 34 — NOT -->
-<div class="soru">
-    <p>34. NOT (!) operatörü ne yapar?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q34" value="A"> Değeri tersine çevirir</label>
-        <label><input type="radio" name="q34" value="B"> Değeri sıfırlar</label>
-        <label><input type="radio" name="q34" value="C"> Sayıyı artırır</label>
-        <label><input type="radio" name="q34" value="D"> Her zaman True döner</label>
-    </div>
-    <div class="sonuc" id="sonuc34"></div>
-</div>
-
-<!-- 35 — HATA TÜRLERİ -->
-<div class="soru">
-    <p>35. Syntax Error hangi durumda oluşur?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q35" value="A"> Dil kurallarına uyulmadığında</label>
-        <label><input type="radio" name="q35" value="B"> Program çalışırken oluştuğunda</label>
-        <label><input type="radio" name="q35" value="C"> Yanlış sonuç ürettiğinde</label>
-        <label><input type="radio" name="q35" value="D"> Donanım arızasında</label>
-    </div>
-    <div class="sonuc" id="sonuc35"></div>
-</div>
-
-<!-- 36 — HATA TÜRLERİ -->
-<div class="soru">
-    <p>36. Run-Time Error ne zaman oluşur?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q36" value="A"> Kod yazılırken</label>
-        <label><input type="radio" name="q36" value="B"> Program çalışırken</label>
-        <label><input type="radio" name="q36" value="C"> Program hiç başlamaz</label>
-        <label><input type="radio" name="q36" value="D"> Bilgisayar kapanınca</label>
-    </div>
-    <div class="sonuc" id="sonuc36"></div>
-</div>
-
-<!-- 37 — HATA TÜRLERİ -->
-<div class="soru">
-    <p>37. Logic Error nedir?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q37" value="A"> Kod çalışır ama yanlış sonuç üretir</label>
-        <label><input type="radio" name="q37" value="B"> Kod derlenmez</label>
-        <label><input type="radio" name="q37" value="C"> Çalışma zamanında çöker</label>
-        <label><input type="radio" name="q37" value="D"> Yazılmazsa oluşur</label>
-    </div>
-    <div class="sonuc" id="sonuc37"></div>
-</div>
-
-<!-- 38 — DERLEYİCİ -->
-<div class="soru">
-    <p>38. Derleyici (compiler) ne yapar?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q38" value="A"> Kodu bir defada makine diline çevirir</label>
-        <label><input type="radio" name="q38" value="B"> Kodu satır satır çalıştırır</label>
-        <label><input type="radio" name="q38" value="C"> Kodları saklar</label>
-        <label><input type="radio" name="q38" value="D"> Programı durdurur</label>
-    </div>
-    <div class="sonuc" id="sonuc38"></div>
-</div>
-
-<!-- 39 — YORUMLAYICI -->
-<div class="soru">
-    <p>39. Yorumlayıcı (interpreter) ne yapar?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q39" value="A"> Tüm kodu bir kerede çevirir</label>
-        <label><input type="radio" name="q39" value="B"> Kodu satır satır okur ve çalıştırır</label>
-        <label><input type="radio" name="q39" value="C"> Kod yazmayı sağlar</label>
-        <label><input type="radio" name="q39" value="D"> Programı siler</label>
-    </div>
-    <div class="sonuc" id="sonuc39"></div>
-</div>
-
-    <div class="soru">
-    <p>40. Aşağıdaki C# kodu kaç kez "Merhaba" yazdırır?</p>
-    <pre>
-for(int i=0; i<5; i++)
-{
-    if(i==3)
-        break;
-    Console.WriteLine("Merhaba");
-}
-    </pre>
-    <div class="cevaplar">
-        <label><input type="radio" name="q40" value="A"> 3</label>
-        <label><input type="radio" name="q40" value="B"> 5</label>
-        <label><input type="radio" name="q40" value="C"> 4</label>
-        <label><input type="radio" name="q40" value="D"> 2</label>
-    </div>
-    <div class="sonuc" id="sonuc40"></div>
-</div>
-
-<div class="soru">
-    <p>41. "break" komutu ne işe yarar?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q41" value="A"> Döngüyü veya switch'i anında durdurur</label>
-        <label><input type="radio" name="q41" value="B"> Döngüyü bir kez daha çalıştırır</label>
-        <label><input type="radio" name="q41" value="C"> Döngüyü sürekli tekrar ettirir</label>
-        <label><input type="radio" name="q41" value="D"> Kodun çalışmasını durdurmaz</label>
-    </div>
-    <div class="sonuc" id="sonuc41"></div>
-</div>
-
-<!-- 42-43: Switch -->
-<div class="soru">
-    <p>42. Aşağıdaki C# kodunun çıktısı nedir?</p>
-    <pre>
-int sayi = 2;
-switch(sayi)
-{
-    case 1:
-        Console.WriteLine("Bir");
-        break;
-    case 2:
-        Console.WriteLine("İki");
-        break;
-    default:
-        Console.WriteLine("Diğer");
-        break;
-}
-    </pre>
-    <div class="cevaplar">
-        <label><input type="radio" name="q42" value="A"> Bir</label>
-        <label><input type="radio" name="q42" value="B"> İki</label>
-        <label><input type="radio" name="q42" value="C"> Diğer</label>
-        <label><input type="radio" name="q42" value="D"> Hata verir</label>
-    </div>
-    <div class="sonuc" id="sonuc42"></div>
-</div>
-
-<div class="soru">
-    <p>43. switch yapısında "default" ne işe yarar?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q43" value="A"> Tüm durumlar doğruysa çalışır</label>
-        <label><input type="radio" name="q43" value="B"> Hiçbir case eşleşmezse çalışır</label>
-        <label><input type="radio" name="q43" value="C"> Kodun başında çalışır</label>
-        <label><input type="radio" name="q43" value="D"> Sadece hata verirse çalışır</label>
-    </div>
-    <div class="sonuc" id="sonuc43"></div>
-</div>
-
-<!-- 44-46: Mantıksal Operatörler -->
-<div class="soru">
-    <p>44. AND (&&) operatörü ne zaman True döner?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q44" value="A"> İki koşul da doğruysa</label>
-        <label><input type="radio" name="q44" value="B"> Biri doğruysa</label>
-        <label><input type="radio" name="q44" value="C"> Her zaman</label>
-        <label><input type="radio" name="q44" value="D"> Hiçbir zaman</label>
-    </div>
-    <div class="sonuc" id="sonuc44"></div>
-</div>
-
-<div class="soru">
-    <p>45. OR (||) operatörü ne zaman True döner?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q45" value="A"> İki koşul da yanlışsa</label>
-        <label><input type="radio" name="q45" value="B"> En az bir koşul doğruysa</label>
-        <label><input type="radio" name="q45" value="C"> Her zaman</label>
-        <label><input type="radio" name="q45" value="D"> Hiçbir zaman</label>
-    </div>
-    <div class="sonuc" id="sonuc45"></div>
-</div>
-
-<div class="soru">
-    <p>46. NOT (!) operatörü ne yapar?</p>
-    <div class="cevaplar">
-        <label><input type="radio" name="q46" value="A"> Koşulu tersine çevirir</label>
-        <label><input type="radio" name="q46" value="B"> Koşulu her zaman True yapar</label>
-        <label><input type="radio" name="q46" value="C"> Koşulu her zaman False yapar</label>
-        <label><input type="radio" name="q46" value="D"> Hiçbir şey yapmaz</label>
-    </div>
-    <div class="sonuc" id="sonuc46"></div>
-</div>
-
-
-<button type="button" onclick="kontrolEt()">Cevapları Kontrol Et</button>
-<br></br>
-    
 <script>
-const dogruCevaplar = {
-    q1:'B', q2:'B', q3:'A', q4:'C', q5:'C', q6:'B', q7:'B', q8:'A', q9:'B', q10:'A',
-    q11:'A', q12:'B', q13:'B', q14:'A', q15:'A', q16:'A', q17:'A', q18:'C', q19:'B', q20:'B',
-    q21:'A', q22:'C', q23:'B', q24:'B',
-    q25:'B', q26:'B', q27:'A', q28:'C', q29:'C', q30:'C', q31:'B',
-    q32:'B', q33:'B', q34:'A',
-    q35:'A', q36:'B', q37:'A',
-    q38:'A', q39:'B', q40:'A', q41:'A', q42:'B', q43:'B', q44:'A', q45:'B', q46:'A'
-};
+const questions = [
+{q:`S1. Aşağıdaki değişkenlerden hangisi doğru tanımlanmıştır?`,
+a:["int 1sayi = 10;","float sayi = 10,5;","char c = 'AB';","bool durum = true;"],c:3},
 
-function kontrolEt(){
-    for(let i=1;i<=46;i++){
-        let secilen=document.querySelector('input[name="q'+i+'"]:checked');
-        let sonucDiv=document.getElementById('sonuc'+i);
-        if(secilen){
-            if(secilen.value===dogruCevaplar['q'+i]){
-                sonucDiv.textContent='Doğru';
-                sonucDiv.className='sonuc dogru';
-            } else {
-                sonucDiv.textContent='Yanlış. Doğru cevap: '+dogruCevaplar['q'+i];
-                sonucDiv.className='sonuc yanlis';
-            }
-            sonucDiv.style.display='block';
-        }
-    }
+{q:`S2. Aşağıdakilerden hangisi karşılaştırma operatörüdür?`,
+a:["=","&&","==","+"],c:2},
+
+{q:`S3. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int x = 5;
+if (x > 3)
+    Console.Write("A");
+else
+    Console.Write("B");
+</pre>`,
+a:["A","B","AB","Hata verir"],c:0},
+
+{q:`S4. Aşağıdakilerden hangisi sonsuz döngü oluşturur?`,
+a:["for(int i=0;i<5;i++)","while(false)","do{ }while(false);","while(true)"],c:3},
+
+{q:`S5. Aşağıdaki dizinin son elemanına erişmek için doğru ifade hangisidir?
+<pre>
+int[] dizi = {10,20,30,40};
+</pre>`,
+a:["dizi[4]","dizi[dizi.Length-1]","dizi[-1]","dizi[40]"],c:1},
+
+{q:`S6. Aşağıdaki kodun çıktısı nedir?
+<pre>
+for(int i=1;i<4;i++)
+{
+    Console.Write(i);
+}
+</pre>`,
+a:["012","123","01","0123"],c:1},
+
+{q:`S7. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int x = 10;
+x++;
+Console.WriteLine(x);
+</pre>`,
+a:["9","10","11","Hata verir"],c:2},
+
+{q:`S8. Aşağıdakilerden hangisi mantıksal VE (AND) operatörüdür?`,
+a:["||","&","&&","!"],c:2},
+
+{q:`S9. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int toplam = 0;
+for(int i=2;i<=4;i++)
+{
+    toplam += i;
+}
+Console.WriteLine(toplam);
+</pre>`,
+a:["5","7","9","11"],c:2},
+
+{q:`S10. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int[] sayilar = {2,4,6};
+Console.WriteLine(sayilar.Length);
+</pre>`,
+a:["2","3","4","6"],c:1},
+
+{q:`S11. Aşağıdakilerden hangisi switch-case yapısında kullanılır?`,
+a:["break","continue","return","goto"],c:0},
+
+{q:`S12. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int x = 1;
+do
+{
+    Console.Write(x);
+    x++;
+} while(x < 4);
+</pre>`,
+a:["01","012","123","0123"],c:2},
+
+{q:`S13. Aşağıdaki kodun çıktısı nedir?
+<pre>
+string ad = "Ali";
+Console.WriteLine(ad.Length);
+</pre>`,
+a:["2","3","4","Hata verir"],c:1},
+
+{q:`S14. Aşağıdakilerden hangisi metot tanımıdır?`,
+a:["int x = 5;","Console.WriteLine();","static void hesapla()","for(int i=0;i<5;i++)"],c:2},
+
+{q:`S15. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int i = 5;
+while(i > 2)
+{
+    Console.Write(i);
+    i--;
+}
+</pre>`,
+a:["543","54","532","321"],c:0},
+
+{q:`S16. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int a = 3;
+int b = 4;
+Console.WriteLine(a > b);
+</pre>`,
+a:["true","false","0","1"],c:1},
+
+{q:`S17. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int x = 5;
+x *= 2;
+Console.WriteLine(x);
+</pre>`,
+a:["7","10","25","5"],c:1},
+
+{q:`S18. Aşağıdakilerden hangisi dizilerle ilgili yanlış bir ifadedir?`,
+a:["Diziler sıfırdan başlar","Dizi boyutu sabittir","Dizi elemanları farklı türde olabilir","Dizi Length özelliğine sahiptir"],c:2},
+
+{q:`S19. Aşağıdaki kodun çıktısı nedir?
+<pre>
+static int Topla(int a,int b)
+{
+    return a + b;
+}
+Console.WriteLine(Topla(3,4));
+</pre>`,
+a:["5","6","7","8"],c:2},
+
+{q:`S20. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int x = 4;
+x /= 2;
+Console.WriteLine(x);
+</pre>`,
+a:["1","2","4","8"],c:1},
+
+{q:`S21. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int x = 2;
+int y = x++ + ++x;
+Console.WriteLine(y);
+</pre>`,
+a:["4","5","6","7"],c:2},
+
+{q:`S22. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int toplam = 0;
+for(int i=1;i<=5;i++)
+{
+    if(i % 2 == 0)
+        toplam += i;
+}
+Console.WriteLine(toplam);
+</pre>`,
+a:["6","9","12","15"],c:2},
+
+{q:`S23. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int[] d = {1,2,3,4};
+Console.WriteLine(d[d.Length-2]);
+</pre>`,
+a:["2","3","4","Hata"],c:1},
+
+{q:`S24. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int x = 5;
+Console.WriteLine(x > 3 && x < 5);
+</pre>`,
+a:["true","false","1","0"],c:1},
+
+];
+
+questions.forEach((item,i)=>{
+document.write(`<div class="question"><b>${item.q}</b><div class="answers">`);
+item.a.forEach((ans,j)=>{
+document.write(`
+<label>
+<input type="radio" name="q${i}" onclick="check(${i},${j})">
+${String.fromCharCode(65+j)}) ${ans}
+</label>
+`);
+});
+document.write(`<div id="r${i}"></div></div></div>`);
+});
+
+function check(q,a){
+let r=document.getElementById("r"+q);
+if(a===questions[q].c){
+r.innerHTML="✅ <span class='correct'>Doğru</span>";
+}else{
+r.innerHTML="❌ <span class='wrong'>Yanlış, Doğru cevap: "
++ String.fromCharCode(65+questions[q].c) + "</span>";
+}
 }
 </script>
 
+</div>
 </body>
 </html>
-
-
-
-
-

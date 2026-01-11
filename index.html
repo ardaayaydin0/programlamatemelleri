@@ -2,241 +2,305 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Programlama Temelleri Testi</title>
+<title>C# Test – Zor Seviye</title>
 <style>
 body{
-    font-family: Arial;
-    background:#f2f2f2;
+    font-family: Arial, sans-serif;
+    background:#f4f6f8;
     padding:20px;
 }
-.test{
-    max-width:900px;
-    margin:auto;
-    background:#ffffff;
-    padding:25px;
+.question{
+    background:#fff;
+    padding:15px;
+    margin-bottom:15px;
     border-radius:8px;
 }
-.question{
-    margin-bottom:20px;
-    padding-bottom:12px;
-    border-bottom:1px solid #ccc;
-}
-.answers label{
-    display:block;
-    padding:4px;
+.answers button{
+    width:100%;
+    padding:8px;
+    margin:5px 0;
     cursor:pointer;
 }
-.correct{color:green;font-weight:bold;}
-.wrong{color:red;font-weight:bold;}
+.correct{background:#c8f7c5;}
+.wrong{background:#f7c5c5;}
 pre{
-    background:#f7f7f7;
+    background:#eee;
     padding:10px;
-    border-radius:5px;
 }
 </style>
 </head>
 <body>
 
-<div class="test">
-<h2>Programlama Temelleri – Çoktan Seçmeli Test</h2>
+<h2>C# Programlama – Zor Seviye Test (30 Soru)</h2>
+<div id="quiz"></div>
 
 <script>
 const questions = [
-{q:`S1. Aşağıdaki değişkenlerden hangisi doğru tanımlanmıştır?`,
-a:["int 1sayi = 10;","float sayi = 10,5;","char c = 'AB';","bool durum = true;"],c:3},
 
-{q:`S2. Aşağıdakilerden hangisi karşılaştırma operatörüdür?`,
-a:["=","&&","==","+"],c:2},
+{q:`S1. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int x = 3;
+Console.WriteLine(x++ + x);
+</pre>`,
+a:["6","7","8","Hata"],c:1},
+
+{q:`S2. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int[] sayilar = new int[5];
+Console.WriteLine(sayilar[4]);
+</pre>`,
+a:["4","null","0","Hata"],c:2},
 
 {q:`S3. Aşağıdaki kodun çıktısı nedir?
 <pre>
 int x = 5;
-if (x > 3)
+if(x < 3)
     Console.Write("A");
-else
+else if(x < 10)
     Console.Write("B");
+else
+    Console.Write("C");
 </pre>`,
-a:["A","B","AB","Hata verir"],c:0},
+a:["A","B","C","Hata"],c:1},
 
-{q:`S4. Aşağıdakilerden hangisi sonsuz döngü oluşturur?`,
-a:["for(int i=0;i<5;i++)","while(false)","do{ }while(false);","while(true)"],c:3},
-
-{q:`S5. Aşağıdaki dizinin son elemanına erişmek için doğru ifade hangisidir?
+{q:`S4. Aşağıdaki kodun çıktısı nedir?
 <pre>
-int[] dizi = {10,20,30,40};
-</pre>`,
-a:["dizi[4]","dizi[dizi.Length-1]","dizi[-1]","dizi[40]"],c:1},
-
-{q:`S6. Aşağıdaki kodun çıktısı nedir?
-<pre>
-for(int i=1;i<4;i++)
+for(int i=0;i<5;i++)
 {
+    if(i==3) break;
     Console.Write(i);
 }
 </pre>`,
-a:["012","123","01","0123"],c:1},
+a:["01234","012","0123","123"],c:2},
+
+{q:`S5. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int x = 10;
+x -= 3;
+Console.WriteLine(x);
+</pre>`,
+a:["13","7","10","Hata"],c:1},
+
+{q:`S6. Aşağıdaki kodun çıktısı nedir?
+<pre>
+Console.WriteLine(10 % 4);
+</pre>`,
+a:["1","2","3","4"],c:1},
 
 {q:`S7. Aşağıdaki kodun çıktısı nedir?
 <pre>
-int x = 10;
-x++;
-Console.WriteLine(x);
+int i = 0;
+while(i < 3)
+{
+    Console.Write(i);
+    i++;
+}
 </pre>`,
-a:["9","10","11","Hata verir"],c:2},
+a:["012","123","01","Hata"],c:0},
 
-{q:`S8. Aşağıdakilerden hangisi mantıksal VE (AND) operatörüdür?`,
-a:["||","&","&&","!"],c:2},
+{q:`S8. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int x = 1;
+do{
+    Console.Write(x);
+    x++;
+}while(x < 1);
+</pre>`,
+a:["Hiçbir şey","1","12","Hata"],c:1},
 
 {q:`S9. Aşağıdaki kodun çıktısı nedir?
 <pre>
+Console.WriteLine(5 > 3 && 2 > 4);
+</pre>`,
+a:["true","false","1","Hata"],c:1},
+
+{q:`S10. Aşağıdaki kodun çıktısı nedir?
+<pre>
 int toplam = 0;
-for(int i=2;i<=4;i++)
+for(int i=1;i<=3;i++)
 {
     toplam += i;
 }
 Console.WriteLine(toplam);
 </pre>`,
-a:["5","7","9","11"],c:2},
+a:["3","6","9","Hata"],c:1},
 
-{q:`S10. Aşağıdaki kodun çıktısı nedir?
+{q:`S11. Aşağıdaki kodun çıktısı nedir?
 <pre>
-int[] sayilar = {2,4,6};
-Console.WriteLine(sayilar.Length);
+int[] dizi = {1,2,3,4};
+Console.WriteLine(dizi.Length);
 </pre>`,
-a:["2","3","4","6"],c:1},
-
-{q:`S11. Aşağıdakilerden hangisi switch-case yapısında kullanılır?`,
-a:["break","continue","return","goto"],c:0},
+a:["3","4","5","Hata"],c:1},
 
 {q:`S12. Aşağıdaki kodun çıktısı nedir?
 <pre>
-int x = 1;
-do
-{
-    Console.Write(x);
-    x++;
-} while(x < 4);
+string s = "Arda";
+Console.WriteLine(s[1]);
 </pre>`,
-a:["01","012","123","0123"],c:2},
+a:["A","r","d","Hata"],c:1},
 
 {q:`S13. Aşağıdaki kodun çıktısı nedir?
 <pre>
-string ad = "Ali";
-Console.WriteLine(ad.Length);
+Console.WriteLine(3 == 3 || 5 < 2);
 </pre>`,
-a:["2","3","4","Hata verir"],c:1},
+a:["true","false","1","0"],c:0},
 
-{q:`S14. Aşağıdakilerden hangisi metot tanımıdır?`,
-a:["int x = 5;","Console.WriteLine();","static void hesapla()","for(int i=0;i<5;i++)"],c:2},
+{q:`S14. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int x = 2;
+Console.WriteLine(++x);
+</pre>`,
+a:["2","3","4","Hata"],c:1},
 
 {q:`S15. Aşağıdaki kodun çıktısı nedir?
 <pre>
+int x = 2;
+Console.WriteLine(x++);
+</pre>`,
+a:["2","3","1","Hata"],c:0},
+
+{q:`S16. Aşağıdaki kodun çıktısı nedir?
+<pre>
 int i = 5;
-while(i > 2)
+while(i > 3)
 {
     Console.Write(i);
     i--;
 }
 </pre>`,
-a:["543","54","532","321"],c:0},
-
-{q:`S16. Aşağıdaki kodun çıktısı nedir?
-<pre>
-int a = 3;
-int b = 4;
-Console.WriteLine(a > b);
-</pre>`,
-a:["true","false","0","1"],c:1},
+a:["543","54","53","Hata"],c:1},
 
 {q:`S17. Aşağıdaki kodun çıktısı nedir?
 <pre>
-int x = 5;
-x *= 2;
+bool durum = false;
+Console.WriteLine(!durum);
+</pre>`,
+a:["true","false","0","Hata"],c:0},
+
+{q:`S18. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int x = 4;
+x *= 3;
 Console.WriteLine(x);
 </pre>`,
-a:["7","10","25","5"],c:1},
-
-{q:`S18. Aşağıdakilerden hangisi dizilerle ilgili yanlış bir ifadedir?`,
-a:["Diziler sıfırdan başlar","Dizi boyutu sabittir","Dizi elemanları farklı türde olabilir","Dizi Length özelliğine sahiptir"],c:2},
+a:["7","12","16","Hata"],c:1},
 
 {q:`S19. Aşağıdaki kodun çıktısı nedir?
 <pre>
-static int Topla(int a,int b)
-{
-    return a + b;
-}
-Console.WriteLine(Topla(3,4));
+Console.WriteLine(8 / 2);
 </pre>`,
-a:["5","6","7","8"],c:2},
+a:["2","4","8","Hata"],c:1},
 
 {q:`S20. Aşağıdaki kodun çıktısı nedir?
 <pre>
-int x = 4;
-x /= 2;
-Console.WriteLine(x);
+Console.WriteLine(7 / 2);
 </pre>`,
-a:["1","2","4","8"],c:1},
+a:["3","3.5","4","Hata"],c:0},
 
 {q:`S21. Aşağıdaki kodun çıktısı nedir?
 <pre>
-int x = 2;
-int y = x++ + ++x;
-Console.WriteLine(y);
+int x = 5;
+Console.WriteLine(x == 5);
 </pre>`,
-a:["4","5","6","7"],c:2},
+a:["true","false","1","Hata"],c:0},
 
 {q:`S22. Aşağıdaki kodun çıktısı nedir?
 <pre>
-int toplam = 0;
-for(int i=1;i<=5;i++)
-{
-    if(i % 2 == 0)
-        toplam += i;
-}
-Console.WriteLine(toplam);
+string a = "Ali";
+a += " Can";
+Console.WriteLine(a);
 </pre>`,
-a:["6","9","12","15"],c:2},
+a:["Ali","Can","Ali Can","Hata"],c:2},
 
 {q:`S23. Aşağıdaki kodun çıktısı nedir?
 <pre>
-int[] d = {1,2,3,4};
-Console.WriteLine(d[d.Length-2]);
+int[] x = {10,20,30};
+Console.WriteLine(x[0]);
 </pre>`,
-a:["2","3","4","Hata"],c:1},
+a:["0","10","20","Hata"],c:1},
 
 {q:`S24. Aşağıdaki kodun çıktısı nedir?
 <pre>
-int x = 5;
-Console.WriteLine(x > 3 && x < 5);
+int x = 1;
+Console.WriteLine(x++ + ++x);
 </pre>`,
-a:["true","false","1","0"],c:1},
+a:["3","4","5","Hata"],c:2},
+
+{q:`S25. Aşağıdaki kodun çıktısı nedir?
+<pre>
+for(int i=1;i<=3;i++)
+    Console.Write(i);
+</pre>`,
+a:["012","123","23","Hata"],c:1},
+
+{q:`S26. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int x = 0;
+if(x != 0)
+    Console.Write("A");
+else
+    Console.Write("B");
+</pre>`,
+a:["A","B","AB","Hata"],c:1},
+
+{q:`S27. Aşağıdaki kodun çıktısı nedir?
+<pre>
+Console.WriteLine(true && false);
+</pre>`,
+a:["true","false","1","Hata"],c:1},
+
+{q:`S28. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int x = 6;
+Console.WriteLine(x % 2);
+</pre>`,
+a:["0","1","2","Hata"],c:0},
+
+{q:`S29. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int x = 3;
+Console.WriteLine(x < 5 ? "A" : "B");
+</pre>`,
+a:["A","B","true","Hata"],c:0},
+
+{q:`S30. Aşağıdaki kodun çıktısı nedir?
+<pre>
+int x = 2;
+x += x;
+Console.WriteLine(x);
+</pre>`,
+a:["2","4","6","Hata"],c:1}
 
 ];
 
-questions.forEach((item,i)=>{
-document.write(`<div class="question"><b>${item.q}</b><div class="answers">`);
-item.a.forEach((ans,j)=>{
-document.write(`
-<label>
-<input type="radio" name="q${i}" onclick="check(${i},${j})">
-${String.fromCharCode(65+j)}) ${ans}
-</label>
-`);
-});
-document.write(`<div id="r${i}"></div></div></div>`);
-});
+const quiz = document.getElementById("quiz");
 
-function check(q,a){
-let r=document.getElementById("r"+q);
-if(a===questions[q].c){
-r.innerHTML="✅ <span class='correct'>Doğru</span>";
-}else{
-r.innerHTML="❌ <span class='wrong'>Yanlış, Doğru cevap: "
-+ String.fromCharCode(65+questions[q].c) + "</span>";
-}
-}
+questions.forEach((s)=>{
+    const div = document.createElement("div");
+    div.className = "question";
+    div.innerHTML = `<b>${s.q}</b>`;
+    const ansDiv = document.createElement("div");
+    ansDiv.className = "answers";
+
+    s.a.forEach((secenek,i)=>{
+        const btn = document.createElement("button");
+        btn.innerText = secenek;
+        btn.onclick = ()=>{
+            if(i===s.c){
+                btn.classList.add("correct");
+                btn.innerHTML += " ✔";
+            }else{
+                btn.classList.add("wrong");
+                btn.innerHTML += " ✘";
+            }
+        };
+        ansDiv.appendChild(btn);
+    });
+
+    div.appendChild(ansDiv);
+    quiz.appendChild(div);
+});
 </script>
 
-</div>
 </body>
 </html>
